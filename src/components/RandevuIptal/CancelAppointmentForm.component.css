@@ -1,0 +1,242 @@
+/* Ana Form Container */
+.cancel-appointment-form {
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(119, 65, 119, 0.15);
+  border: 1px solid #e7dee7;
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.6s ease-out;
+}
+
+/* Form içeriği */
+.cancel-appointment-form > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Başlık */
+.cancel-appointment-title {
+  color: #613060;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  position: relative;
+}
+
+.cancel-appointment-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #774177, #c5a5c5);
+  border-radius: 2px;
+}
+
+/* Input ve Select genel stilleri */
+.cancel-form-input,
+.cancel-form-select {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e7dee7;
+  border-radius: 12px;
+  font-size: 16px;
+  background: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #613060;
+  font-family: inherit;
+}
+
+.cancel-form-input:focus,
+.cancel-form-select:focus {
+  outline: none;
+  border-color: #774177;
+  box-shadow: 0 0 0 3px rgba(119, 65, 119, 0.1);
+  transform: translateY(-2px);
+  animation: focusGlow 0.6s ease-out;
+}
+
+.cancel-form-input:hover,
+.cancel-form-select:hover {
+  border-color: #c5a5c5;
+}
+
+/* Placeholder stilleri */
+.cancel-form-input::placeholder {
+  color: #c5a5c5;
+  opacity: 0.8;
+}
+
+/* Select özel stilleri */
+.cancel-form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23774177' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  padding-right: 45px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Disabled select stil */
+.cancel-form-select:disabled {
+  background-color: #f8f8f8;
+  color: #c5a5c5;
+  cursor: not-allowed;
+  border-color: #e7dee7;
+}
+
+/* Submit ve iptal butonları */
+.cancel-submit-button,
+.cancel-button {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #774177 0%, #613060 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.cancel-button {
+  width: auto;
+  margin-top: 0;
+  margin-left: 15px;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-transform: none;
+  border-radius: 8px;
+  align-self: center;
+}
+
+.cancel-submit-button:hover,
+.cancel-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(119, 65, 119, 0.3);
+}
+
+.cancel-submit-button:active,
+.cancel-button:active {
+  transform: translateY(-1px);
+}
+
+/* Buton hover efekti */
+.cancel-submit-button::before,
+.cancel-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.5s ease;
+}
+
+.cancel-submit-button:hover::before,
+.cancel-button:hover::before {
+  left: 100%;
+}
+
+/* Loading durumu için buton */
+.cancel-submit-button:disabled,
+.cancel-button:disabled {
+  background: #c5c5c5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mesajlar */
+.cancel-success-message,
+.cancel-error-message {
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  animation: slideIn 0.5s ease-out;
+}
+
+.cancel-success-message {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+}
+
+.cancel-error-message {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+}
+
+/* Sayfa arka planı */
+.cancel-appointment-page {
+  padding: 20px;
+}
+
+/* Animasyonlar */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes focusGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(119, 65, 119, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 6px rgba(119, 65, 119, 0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cancel-appointment-form {
+    margin: 20px auto;
+    padding: 30px 20px;
+    max-width: 90%;
+  }
+
+  .cancel-appointment-title {
+    font-size: 24px;
+  }
+
+  .cancel-form-input,
+  .cancel-form-select {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .cancel-submit-button,
+  .cancel-button {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .cancel-button {
+    margin-left: 10px;
+    padding: 12px 20px;
+  }
+}

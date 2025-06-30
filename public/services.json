@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Lazer Epilasyon",
+    "description": "En son teknoloji ile ağrısız ve kalıcı çözümler sunuyoruz.",
+    "priceWomen": "12.000 ₺",
+    "priceMen": "15.000 ₺"
+  },
+  {
+    "title": "Cilt Bakımları",
+    "description": "Cildinize özel tedaviler ile gençleşin ve parlayın.",
+    "ciltYenileme": "1.000 ₺",
+    "kimyasalPeeling": "1.250 ₺",
+    "medicalCilt": "750₺"
+  },
+  {
+    "title": "Kaş & Bıyık",
+    "description": "Yüz hatlarınızı tamamlayacak profesyonel şekillendirme.",
+    "kasPrice": "100 ₺"
+  },
+  {
+    "title": "Kirpik İşlemleri",
+    "description": "Bakışlarınıza derinlik ve etkileyicilik kazandırın.",
+    "liftingPrice": "750 ₺",
+    "ipekPrice": "750 ₺"
+  },
+  {
+    "title": "Tırnak ve Manikür",
+    "description": "Elleriniz ve tırnaklarınız için profesyonel bakım hizmetleri.",
+    "protezPrice": "750 ₺",
+    "manikürAndOje": "600 ₺",
+    "manikür": "300 ₺"
+  },
+  {
+    "title": "İğneli Epilasyon",
+    "description": "Hassas bölgeler için etkili ve uzun süreli çözümler.",
+    "priceMin": "15 ₺"
+  }
+]

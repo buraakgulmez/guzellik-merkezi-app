@@ -1,0 +1,136 @@
+.header-style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1320px;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  z-index: 100;
+}
+
+.logo-style {
+  flex: 1;
+}
+
+.logo-css {
+  width: 140px;
+  object-fit: cover;
+}
+
+.nav-style {
+  flex: 2;
+}
+
+.ul-style {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.ul-style li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #613060;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.ul-style li a:hover {
+  color: #774177;
+}
+
+/* Randevu Butonu */
+.randevu-btn {
+  background-color: #774177;
+  padding: 8px 14px;
+  border-radius: 16px;
+  color: #fff !important;
+  border: 2px solid #774177;
+  font-weight: bold;
+  transition: 0.6s;
+}
+
+.randevu-btn:hover {
+  background-color: #fff;
+  color: #774177 !important;
+  border-color: #774177;
+}
+
+/* Hamburger Menü */
+.mobile-menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #613060;
+  transition: 0.4s;
+}
+
+/* Hamburger aktif olduğunda X işaretine dönüşür */
+.bar.change:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.bar.change:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.change:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobil Tasarım */
+@media (max-width: 768px) {
+  .nav-style {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    animation: slideDown 0.3s ease;
+  }
+
+  .nav-style.open {
+    display: flex;
+  }
+
+  .ul-style {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .randevu-btn {
+    width: 80%;
+    text-align: center;
+  }
+
+  .mobile-menu-icon {
+    display: flex;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
