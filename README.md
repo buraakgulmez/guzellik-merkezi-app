@@ -1,92 +1,104 @@
-Güzellik Merkezi Randevu Uygulaması
+<h1>🌸 Güzellik Merkezi Randevu Uygulaması</h1>
 
-🔗 Canlı Demo:
-https://guzellik-merkezi-app.vercel.app
+<p>
+  <strong>Canlı Demo:</strong><br />
+  <a href="https://guzellik-merkezi-app.vercel.app" target="_blank">
+    https://guzellik-merkezi-app.vercel.app
+  </a>
+</p>
 
-Bu proje, güzellik merkezleri için geliştirilmiş uçtan uca (frontend + backend) bir online randevu alma sistemidir.
-Kullanıcılar hizmet seçerek randevu oluşturabilir; randevular Firebase Firestore’da saklanır ve hem kullanıcıya hem işletmeye e-posta + takvim (.ics) bildirimi gönderilir.
+<p>
+  Bu proje, güzellik merkezleri için geliştirilmiş
+  <strong>uçtan uca (frontend + backend)</strong> bir
+  <strong>online randevu alma sistemidir</strong>.
+  Kullanıcılar hizmet seçerek randevu oluşturabilir; randevular
+  <strong>Firebase Firestore</strong>’da saklanır ve hem kullanıcıya
+  hem işletmeye <strong>e-posta + takvim (.ics)</strong> bildirimi gönderilir.
+</p>
 
-🚀 Özellikler
+<h2>🚀 Özellikler</h2>
 
-🗓 Online randevu alma
+<ul>
+  <li>🗓 <strong>Online randevu alma</strong></li>
+  <li>💅 <strong>Hizmet seçimi</strong> (cilt bakımı, epilasyon, tırnak vb.)</li>
+  <li>🔥 <strong>Firebase Firestore</strong> üzerinde randevu kaydı</li>
+  <li>📧 <strong>Nodemailer</strong> ile otomatik e-posta gönderimi</li>
+  <li>📎 <strong>.ics takvim dosyası</strong> (Google / Apple / Outlook uyumlu)</li>
+  <li>❌ <strong>Randevu iptali</strong></li>
+  <li>📱 <strong>Mobil uyumlu</strong> modern arayüz</li>
+  <li>⚡ <strong>Vercel</strong> üzerinde canlı deployment</li>
+</ul>
 
-💅 Hizmet seçimi (cilt bakımı, epilasyon, tırnak vb.)
+<h2>🧠 Kullanılan Teknolojiler</h2>
 
-🔥 Firebase Firestore üzerinde randevu kaydı
+<h3>Frontend</h3>
+<ul>
+  <li>Next.js</li>
+  <li>React</li>
+  <li>JavaScript</li>
+  <li>HTML / CSS</li>
+</ul>
 
-📧 Nodemailer ile otomatik e-posta gönderimi
+<h3>Backend</h3>
+<ul>
+  <li>Next.js API Routes / Node.js</li>
+  <li>Firebase Firestore</li>
+  <li>Firebase Admin SDK</li>
+  <li>Express.js</li>
+  <li>Nodemailer</li>
+  <li>ICS (takvim dosyası oluşturma)</li>
+</ul>
 
-📎 .ics takvim dosyası (Google / Apple / Outlook uyumlu)
+<h3>Deployment</h3>
+<ul>
+  <li>Vercel</li>
+</ul>
 
-❌ Randevu iptali
+<h2>🏗️ Sistem Mimarisi</h2>
 
-📱 Mobil uyumlu modern arayüz
+<ul>
+  <li>Kullanıcı arayüzü <strong>Next.js</strong> ile geliştirilmiştir.</li>
+</ul>
 
-⚡ Vercel üzerinde canlı deployment
+<p><strong>Randevu oluşturulduğunda:</strong></p>
+<ul>
+  <li>Randevu bilgileri <strong>Firestore</strong>’a kaydedilir.</li>
+  <li>Otomatik <strong>.ics takvim dosyası</strong> oluşturulur.</li>
+  <li>İşletme sahibine ve kullanıcıya <strong>e-posta</strong> gönderilir.</li>
+</ul>
 
-🧠 Kullanılan Teknolojiler
-Frontend
+<p><strong>Randevu iptal edildiğinde:</strong></p>
+<ul>
+  <li>Firestore’dan silinir.</li>
+  <li>Taraflara iptal e-postası gönderilir.</li>
+</ul>
 
-Next.js
+<h2>🔥 Firebase Kullanımı</h2>
 
-React
+<ul>
+  <li>
+    Randevular
+    <strong>Firestore → <code>randevular</code> koleksiyonunda</strong>
+    tutulur.
+  </li>
+  <li>
+    <strong>Firebase Admin SDK</strong> ile güvenli sunucu tarafı erişim sağlanır.
+  </li>
+  <li>
+    CRUD işlemleri backend üzerinden yapılır.
+  </li>
+</ul>
 
-JavaScript
+<h2>🎯 Projenin Amacı</h2>
 
-HTML / CSS
+<p>
+  Bu proje, güzellik merkezlerinde sıkça yaşanan aşağıdaki problemleri
+  <strong>dijital ve otomatik</strong> bir sistemle çözmeyi hedefler:
+</p>
 
-Backend
+<ul>
+  <li>Randevu çakışmaları</li>
+  <li>Manuel kayıt karmaşası</li>
+  <li>İletişim kopuklukları</li>
+</ul>
 
-Next.js API Routes / Node.js
-
-Firebase Firestore
-
-Firebase Admin SDK
-
-Express.js
-
-Nodemailer
-
-ICS (takvim dosyası oluşturma)
-
-Deployment
-
-Vercel
-
-🏗️ Sistem Mimarisi
-
-Kullanıcı arayüzü Next.js ile geliştirilmiştir.
-
-Randevu oluşturulduğunda:
-
-Randevu bilgileri Firestore’a kaydedilir.
-
-Otomatik .ics takvim dosyası oluşturulur.
-
-İşletme sahibine ve kullanıcıya e-posta gönderilir.
-
-Randevu iptal edildiğinde:
-
-Firestore’dan silinir
-
-Taraflara iptal e-postası gönderilir
-
-🔥 Firebase Kullanımı
-
-Randevular Firestore → randevular koleksiyonunda tutulur
-
-Firebase Admin SDK ile güvenli sunucu tarafı erişim sağlanır
-
-CRUD işlemleri backend üzerinden yapılır.
-
-🎯 Projenin Amacı
-
-Bu proje, güzellik merkezlerinde sıkça yaşanan:
-
-Randevu çakışmaları
-
-Manuel kayıt karmaşası
-
-İletişim kopuklukları
-
-gibi problemleri dijital ve otomatik bir sistemle çözmeyi hedefler.
