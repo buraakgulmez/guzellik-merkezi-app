@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+Güzellik Merkezi Randevu Uygulaması
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🔗 Canlı Demo:
+https://guzellik-merkezi-app.vercel.app
 
-## Available Scripts
+Bu proje, güzellik merkezleri için geliştirilmiş uçtan uca (frontend + backend) bir online randevu alma sistemidir.
+Kullanıcılar hizmet seçerek randevu oluşturabilir; randevular Firebase Firestore’da saklanır ve hem kullanıcıya hem işletmeye e-posta + takvim (.ics) bildirimi gönderilir.
 
-In the project directory, you can run:
+🚀 Özellikler
 
-### `npm start`
+🗓 Online randevu alma
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+💅 Hizmet seçimi (cilt bakımı, epilasyon, tırnak vb.)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🔥 Firebase Firestore üzerinde randevu kaydı
 
-### `npm test`
+📧 Nodemailer ile otomatik e-posta gönderimi
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+📎 .ics takvim dosyası (Google / Apple / Outlook uyumlu)
 
-### `npm run build`
+❌ Randevu iptali
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📱 Mobil uyumlu modern arayüz
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+⚡ Vercel üzerinde canlı deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🧠 Kullanılan Teknolojiler
+Frontend
 
-### `npm run eject`
+Next.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+React
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+JavaScript
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+HTML / CSS
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Backend
 
-## Learn More
+Next.js API Routes / Node.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Firebase Firestore
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Firebase Admin SDK
 
-### Code Splitting
+Express.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Nodemailer
 
-### Analyzing the Bundle Size
+ICS (takvim dosyası oluşturma)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Deployment
 
-### Making a Progressive Web App
+Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🏗️ Sistem Mimarisi
 
-### Advanced Configuration
+Kullanıcı arayüzü Next.js ile geliştirilmiştir.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Randevu oluşturulduğunda:
 
-### Deployment
+Randevu bilgileri Firestore’a kaydedilir.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Otomatik .ics takvim dosyası oluşturulur.
 
-### `npm run build` fails to minify
+İşletme sahibine ve kullanıcıya e-posta gönderilir.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Randevu iptal edildiğinde:
+
+Firestore’dan silinir
+
+Taraflara iptal e-postası gönderilir
+
+📂 Proje Yapısı (Özet)
+├── frontend/
+│   ├── pages/
+│   ├── components/
+│   └── styles/
+│
+├── backend/
+│   ├── index.js           # Express server
+│   ├── firebaseAdmin.js   # Firebase Admin config
+│   └── randevular.json    # (Test verileri)
+│
+└── README.md
+
+🔥 Firebase Kullanımı
+
+Randevular Firestore → randevular koleksiyonunda tutulur
+
+Firebase Admin SDK ile güvenli sunucu tarafı erişim sağlanır
+
+CRUD işlemleri backend üzerinden yapılır.
+
+🎯 Projenin Amacı
+
+Bu proje, güzellik merkezlerinde sıkça yaşanan:
+
+Randevu çakışmaları
+
+Manuel kayıt karmaşası
+
+İletişim kopuklukları
+
+gibi problemleri dijital ve otomatik bir sistemle çözmeyi hedefler.
+
+Aynı yapı;
+✔ kuaför
+✔ diş kliniği
+✔ danışmanlık
+✔ spor salonu
+
+gibi işletmelere kolayca uyarlanabilir.
