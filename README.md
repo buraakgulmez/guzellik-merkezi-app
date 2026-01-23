@@ -71,19 +71,6 @@ Firestore’dan silinir
 
 Taraflara iptal e-postası gönderilir
 
-📂 Proje Yapısı (Özet)
-├── frontend/
-│   ├── pages/
-│   ├── components/
-│   └── styles/
-│
-├── backend/
-│   ├── index.js           # Express server
-│   ├── firebaseAdmin.js   # Firebase Admin config
-│   └── randevular.json    # (Test verileri)
-│
-└── README.md
-
 🔥 Firebase Kullanımı
 
 Randevular Firestore → randevular koleksiyonunda tutulur
@@ -103,11 +90,3 @@ Manuel kayıt karmaşası
 İletişim kopuklukları
 
 gibi problemleri dijital ve otomatik bir sistemle çözmeyi hedefler.
-
-Aynı yapı;
-✔ kuaför
-✔ diş kliniği
-✔ danışmanlık
-✔ spor salonu
-
-gibi işletmelere kolayca uyarlanabilir.
