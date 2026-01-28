@@ -102,3 +102,6 @@
   <li>İletişim kopuklukları</li>
 </ul>
 
+<h5>Admin Panel sayfası görünümü;</h5>
+<img width="1903" height="1117" alt="Opera Anlık görüntü_2026-01-28_155653_localhost" src="https://github.com/user-attachments/assets/d21bf910-4260-4142-aedd-bd517df021fd" />
+
