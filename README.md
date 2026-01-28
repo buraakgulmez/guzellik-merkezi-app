@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+<h1>🌸 Güzellik Merkezi Randevu Uygulaması</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>
+  <strong>Canlı Demo:</strong><br />
+  <a href="https://guzellik-merkezi-app.vercel.app" target="_blank">
+    https://guzellik-merkezi-app.vercel.app
+  </a>
+</p>
 
-## Available Scripts
+<p>
+  Bu proje, güzellik merkezleri için geliştirilmiş
+  <strong>uçtan uca (frontend + backend)</strong> bir
+  <strong>online randevu alma sistemidir</strong>.
+  Kullanıcılar hizmet seçerek randevu oluşturabilir; randevular
+  <strong>Firebase Firestore</strong>’da saklanır ve hem kullanıcıya
+  hem işletmeye <strong>e-posta + takvim (.ics)</strong> bildirimi gönderilir.
+</p>
 
-In the project directory, you can run:
+<h2>🚀 Özellikler</h2>
 
-### `npm start`
+<ul>
+  <li>🗓 <strong>Online randevu alma</strong></li>
+  <li>💅 <strong>Hizmet seçimi</strong> (cilt bakımı, epilasyon, tırnak vb.)</li>
+  <li>🔥 <strong>Firebase Firestore</strong> üzerinde randevu kaydı</li>
+  <li>📧 <strong>Nodemailer</strong> ile otomatik e-posta gönderimi</li>
+  <li>📎 <strong>.ics takvim dosyası</strong> (Google / Apple / Outlook uyumlu)</li>
+  <li>❌ <strong>Randevu iptali</strong></li>
+  <li>📱 <strong>Mobil uyumlu</strong> modern arayüz</li>
+  <li>⚡ <strong>Vercel</strong> üzerinde canlı deployment</li>
+</ul>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h2>🧠 Kullanılan Teknolojiler</h2>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h3>Frontend</h3>
+<ul>
+  <li>Next.js</li>
+  <li>React</li>
+  <li>JavaScript</li>
+  <li>HTML / CSS</li>
+</ul>
 
-### `npm test`
+<h3>Backend</h3>
+<ul>
+  <li>Next.js API Routes / Node.js</li>
+  <li>Firebase Firestore</li>
+  <li>Firebase Admin SDK</li>
+  <li>Express.js</li>
+  <li>Nodemailer</li>
+  <li>ICS (takvim dosyası oluşturma)</li>
+</ul>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h3>Deployment</h3>
+<ul>
+  <li>Vercel</li>
+</ul>
 
-### `npm run build`
+<h2>🏗️ Sistem Mimarisi</h2>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<ul>
+  <li>Kullanıcı arayüzü <strong>Next.js</strong> ile geliştirilmiştir.</li>
+</ul>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p><strong>Randevu oluşturulduğunda:</strong></p>
+<ul>
+  <li>Randevu bilgileri <strong>Firestore</strong>’a kaydedilir.</li>
+  <li>Otomatik <strong>.ics takvim dosyası</strong> oluşturulur.</li>
+  <li>İşletme sahibine ve kullanıcıya <strong>e-posta</strong> gönderilir.</li>
+</ul>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p><strong>Randevu iptal edildiğinde:</strong></p>
+<ul>
+  <li>Firestore’dan silinir.</li>
+  <li>Taraflara iptal e-postası gönderilir.</li>
+</ul>
 
-### `npm run eject`
+<h2>🔥 Firebase Kullanımı</h2>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<ul>
+  <li>
+    Randevular
+    <strong>Firestore → <code>randevular</code> koleksiyonunda</strong>
+    tutulur.
+  </li>
+  <li>
+    <strong>Firebase Admin SDK</strong> ile güvenli sunucu tarafı erişim sağlanır.
+  </li>
+  <li>
+    CRUD işlemleri backend üzerinden yapılır.
+  </li>
+</ul>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<h2>🎯 Projenin Amacı</h2>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p>
+  Bu proje, güzellik merkezlerinde sıkça yaşanan aşağıdaki problemleri
+  <strong>dijital ve otomatik</strong> bir sistemle çözmeyi hedefler:
+</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<ul>
+  <li>Randevu çakışmaları</li>
+  <li>Manuel kayıt karmaşası</li>
+  <li>İletişim kopuklukları</li>
+</ul>
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
