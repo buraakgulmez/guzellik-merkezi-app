@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logoAura from "../../images/logo/aura-logo.jpg";
 import "./header.component.css";
 
 const HeaderItem = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // 🔴 Admin panel sayfalarında header gösterme
+  if (location.pathname.startsWith("/admin/panel")) {
+    return null;
+  }
 
   return (
     <header className="header-style">
@@ -29,7 +35,10 @@ const HeaderItem = () => {
         </ul>
       </nav>
 
-      <div className="mobile-menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+      <div
+        className="mobile-menu-icon"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
         <div className={`bar ${menuOpen ? "change" : ""}`}></div>
         <div className={`bar ${menuOpen ? "change" : ""}`}></div>
         <div className={`bar ${menuOpen ? "change" : ""}`}></div>

@@ -1,14 +1,798 @@
+/* ==================== YENİ WRAPPER VE SIDEBAR ==================== */
+
+/* Ana Wrapper - flex h-screen bg-gray-50 */
+.admin-panel-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+/* Sidebar - Açık/Kapalı Durumlar */
+.admin-sidebar {
+  background: linear-gradient(180deg, #9333ea, #7e22ce);
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 1000;
+}
+
+/* w-64 - Sidebar açık */
+.admin-sidebar.open {
+  width: 16rem;
+}
+
+/* w-20 - Sidebar kapalı */
+.admin-sidebar.closed {
+  width: 5rem;
+}
+
+/* Sidebar Header - p-6 flex items-center justify-between border-b border-purple-500 */
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #a855f7;
+}
+
+/* text-2xl font-bold */
+.sidebar-logo {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* p-2 hover:bg-purple-700 rounded-lg transition */
+.sidebar-toggle {
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-toggle:hover {
+  background-color: #7e22ce;
+}
+
+/* flex-1 p-4 */
+.sidebar-nav {
+  flex: 1 1 0%;
+  padding: 10px;
+}
+
+/* w-full flex items-center gap-4 p-4 rounded-xl mb-2 transition-all */
+.sidebar-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0.75rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* hover:bg-purple-700 */
+.sidebar-item:hover {
+  background-color: #7e22ce;
+}
+
+/* bg-white text-purple-600 shadow-lg - Active state */
+.sidebar-item.active {
+  background-color: white;
+  color: #9333ea;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-icon {
+  font-size: 1.5rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+/* font-semibold */
+.sidebar-label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* p-4 border-t border-purple-500 */
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid #a855f7;
+}
+
+/* flex items-center gap-3 */
+.admin-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-info.hidden {
+  display: none;
+}
+
+/* w-10 h-10 bg-purple-400 rounded-full flex items-center justify-center font-bold */
+.admin-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #c084fc;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.admin-details {
+  flex: 1;
+}
+
+/* font-semibold */
+.admin-name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* text-sm text-purple-200 */
+.admin-email {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #e9d5ff;
+}
+
+/* Main Content - flex-1 overflow-auto */
+.admin-main-content {
+  flex: 1 1 0%;
+  margin-left: 16rem;
+  overflow-y: auto;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.admin-sidebar.closed ~ .admin-main-content {
+  margin-left: 5rem;
+}
+
+/* p-8 */
+.admin-main-content > div {
+  padding: 2rem;
+}
+
+/* ==================== HEADER SECTION ==================== */
+
+/* mb-8 */
+.admin-header {
+  margin-bottom: 2rem;
+}
+
+/* text-4xl font-bold text-gray-800 mb-2 */
+.admin-header h1 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+/* text-gray-600 */
+.admin-header p {
+  color: #4b5563;
+}
+
+/* ==================== RANDEVULAR VIEW - TAKVIM ==================== */
+
+/* grid grid-cols-1 lg:grid-cols-3 gap-8 */
+.randevular-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .randevular-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* lg:col-span-1 bg-white rounded-2xl shadow-lg p-6 border border-gray-200 */
+.calendar-section {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+@media (min-width: 1024px) {
+  .calendar-section {
+    grid-column: span 1 / span 1;
+  }
+}
+
+/* text-xl font-bold text-gray-800 mb-4 flex items-center gap-2 */
+.calendar-section h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* text-purple-600 */
+.calendar-section h3 svg {
+  color: #9333ea;
+}
+
+/* space-y-2 */
+.calendar-days {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* w-full p-4 rounded-xl text-left transition-all */
+.calendar-day-button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* bg-purple-600 text-white shadow-lg scale-105 - Selected */
+.calendar-day-button.selected {
+  background-color: #9333ea;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: scale(1.05);
+}
+
+/* bg-purple-100 text-purple-800 hover:bg-purple-200 - Has appointment */
+.calendar-day-button.has-appointment {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+.calendar-day-button.has-appointment:hover {
+  background-color: #e9d5ff;
+}
+
+/* bg-gray-50 text-gray-600 hover:bg-gray-100 - No appointment */
+.calendar-day-button.no-appointment {
+  background-color: #f9fafb;
+  color: #4b5563;
+}
+
+.calendar-day-button.no-appointment:hover {
+  background-color: #f3f4f6;
+}
+
+/* flex justify-between items-center */
+.calendar-day-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* font-semibold */
+.calendar-day-name {
+  font-weight: 600;
+}
+
+/* text-sm opacity-90 */
+.calendar-day-date {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  opacity: 0.9;
+}
+
+/* flex items-center gap-1 */
+.calendar-day-count {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* text-sm font-bold */
+.calendar-day-count span {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+
+/* ==================== APPOINTMENTS LIST ==================== */
+
+/* lg:col-span-2 bg-white rounded-2xl shadow-lg p-6 border border-gray-200 */
+.appointments-section {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+@media (min-width: 1024px) {
+  .appointments-section {
+    grid-column: span 2 / span 2;
+  }
+}
+
+/* text-xl font-bold text-gray-800 mb-4 flex items-center gap-2 */
+.appointments-section h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.appointments-section h3 svg {
+  color: #9333ea;
+}
+
+/* text-center py-12 */
+.no-appointments-modern {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* mx-auto text-gray-400 mb-4 */
+.no-appointments-modern svg {
+  margin-left: auto;
+  margin-right: auto;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+/* text-gray-500 text-lg */
+.no-appointments-modern p {
+  color: #6b7280;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+/* space-y-4 */
+.appointments-list-modern {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* text-lg font-bold text-purple-600 mb-3 flex items-center gap-2 */
+.service-header {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  color: #9333ea;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* w-2 h-2 bg-purple-600 rounded-full */
+.service-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #9333ea;
+  border-radius: 9999px;
+}
+
+/* space-y-2 */
+.service-appointments {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* bg-gradient-to-r from-gray-50 to-white p-4 rounded-xl border border-gray-200 hover:shadow-md transition-all */
+.appointment-card {
+  background: linear-gradient(to right, #f9fafb, white);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.appointment-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* flex justify-between items-start */
+.appointment-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* flex-1 */
+.appointment-card-details {
+  flex: 1 1 0%;
+}
+
+/* flex items-center gap-3 mb-2 */
+.appointment-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* bg-purple-600 text-white px-3 py-1 rounded-lg font-bold text-sm */
+.appointment-time-badge {
+  background-color: #9333ea;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+/* font-bold text-gray-800 */
+.appointment-name {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* text-sm text-gray-600 space-y-1 */
+.appointment-contact {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #4b5563;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.appointment-contact p {
+  margin: 0;
+}
+
+/* ==================== RANDEVU İPTAL BÖLÜMÜ ==================== */
+
+/* bg-white rounded-2xl shadow-lg p-6 border border-gray-200 */
+.iptal-container {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+/* mb-6 flex justify-between items-center */
+.iptal-header {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* text-xl font-bold text-gray-800 */
+.iptal-header h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-semibold transition flex items-center gap-2 */
+.iptal-button {
+  background-color: #dc2626;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iptal-button:hover {
+  background-color: #b91c1c;
+}
+
+/* space-y-2 */
+.iptal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* p-4 rounded-xl border-2 transition-all cursor-pointer */
+.iptal-item {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 2px solid #e5e7eb;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  background-color: white;
+}
+
+/* border-red-500 bg-red-50 */
+.iptal-item.selected {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+/* border-gray-200 bg-white hover:border-purple-300 */
+.iptal-item:not(.selected):hover {
+  border-color: #d8b4fe;
+}
+
+/* flex items-center gap-4 */
+.iptal-item-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* w-5 h-5 rounded accent-purple-600 */
+.iptal-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  accent-color: #9333ea;
+  cursor: pointer;
+}
+
+/* flex-1 grid grid-cols-5 gap-4 items-center */
+.iptal-details {
+  flex: 1 1 0%;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+/* font-semibold text-gray-800 */
+.iptal-date {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* text-purple-600 font-bold */
+.iptal-time {
+  color: #9333ea;
+  font-weight: 700;
+}
+
+/* font-semibold */
+.iptal-name {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* text-gray-600 */
+.iptal-phone {
+  color: #4b5563;
+}
+
+/* text-sm text-gray-500 */
+.iptal-service {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #6b7280;
+}
+
+/* ==================== İSTATİSTİKLER BÖLÜMÜ ==================== */
+
+/* grid grid-cols-1 md:grid-cols-3 gap-6 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl shadow-lg p-6 text-white */
+.stat-card {
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  color: white;
+}
+
+.stat-card.stat-purple {
+  background: linear-gradient(to bottom right, #a855f7, #7e22ce);
+}
+
+.stat-card.stat-blue {
+  background: linear-gradient(to bottom right, #3b82f6, #1d4ed8);
+}
+
+.stat-card.stat-green {
+  background: linear-gradient(to bottom right, #10b981, #047857);
+}
+
+/* mb-4 opacity-80 */
+.stat-card svg {
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+/* text-4xl font-bold mb-2 */
+.stat-number {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* text-purple-200, text-blue-200, text-green-200 */
+.stat-label {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.stat-card.stat-purple .stat-label {
+  color: #e9d5ff;
+}
+
+.stat-card.stat-blue .stat-label {
+  color: #bfdbfe;
+}
+
+.stat-card.stat-green .stat-label {
+  color: #d1fae5;
+}
+
+/* ==================== MODAL ==================== */
+
+/* fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+/* bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl */
+.modal-content {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 28rem;
+  width: 100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* text-center mb-6 */
+.modal-body {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* mx-auto text-red-600 mb-4 */
+.modal-body svg {
+  margin-left: auto;
+  margin-right: auto;
+  color: #dc2626;
+  margin-bottom: 1rem;
+}
+
+/* text-2xl font-bold text-gray-800 mb-2 */
+.modal-title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+/* text-gray-600 */
+.modal-text {
+  color: #4b5563;
+  margin: 0;
+}
+
+/* flex gap-4 */
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* flex-1 py-3 rounded-xl font-semibold transition */
+.modal-button {
+  flex: 1 1 0%;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* bg-gray-200 hover:bg-gray-300 text-gray-800 */
+.modal-button.modal-cancel {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+.modal-button.modal-cancel:hover {
+  background-color: #d1d5db;
+}
+
+/* bg-red-600 hover:bg-red-700 text-white */
+.modal-button.modal-confirm {
+  background-color: #dc2626;
+  color: white;
+}
+
+.modal-button.modal-confirm:hover {
+  background-color: #b91c1c;
+}
+
+/* ==================== ORİJİNAL CSS (MEVCUT) ==================== */
+
 /* Ana Container */
-.admin-panel-container.with-calendar {
-  max-width: 1200px;
+.admin-panel-container {
+  max-width: 1400px;
   margin: 40px auto;
   padding: 32px;
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   color: #374151;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border: 1px solid #e5e7eb;
+}
+
+.admin-panel-container.with-calendar {
+  max-width: 1200px;
 }
 
 /* Ana Başlık */
@@ -157,7 +941,8 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -191,6 +976,20 @@
   background-clip: text;
 }
 
+/* Service Group */
+.service-group {
+  margin-bottom: 24px;
+}
+
+.service-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #8b5cf6;
+  margin-bottom: 12px;
+  padding-left: 12px;
+  border-left: 4px solid #8b5cf6;
+}
+
 /* Randevu Listesi */
 .appointment-list {
   list-style: none;
@@ -213,7 +1012,7 @@
 }
 
 .appointment-item::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -252,84 +1051,147 @@
   border: 2px dashed #d1d5db;
 }
 
-/* Responsive Tasarım */
+/* ==================== RESPONSİVE TASARIM ==================== */
+
 @media (max-width: 1024px) {
   .content-wrapper {
     gap: 32px;
   }
-  
+
   .admin-panel-container.with-calendar {
     padding: 24px;
+  }
+
+  .iptal-details {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .iptal-service {
+    grid-column: span 3;
   }
 }
 
 @media (max-width: 768px) {
+  .admin-sidebar.open {
+    width: 15rem;
+  }
+
+  .admin-main-content {
+    margin-left: 15rem;
+  }
+
+  .admin-sidebar.closed ~ .admin-main-content {
+    margin-left: 4.375rem;
+  }
+
   .admin-panel-container.with-calendar {
     margin: 20px;
     padding: 20px;
   }
-  
+
   .admin-panel-title {
     font-size: 2rem;
     margin-bottom: 30px;
   }
-  
+
   .content-wrapper {
     flex-direction: column;
     gap: 24px;
   }
-  
+
   .calendar-wrapper,
   .appointments-wrapper {
     max-width: 100%;
   }
-  
+
   .appointments-wrapper {
     padding: 24px;
   }
-  
+
   .react-calendar__tile {
     padding: 8px 4px;
     font-size: 0.875rem;
   }
+
+  .iptal-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .iptal-details {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
+  .admin-sidebar {
+    position: fixed;
+    transform: translateX(-100%);
+  }
+
+  .admin-sidebar.open {
+    transform: translateX(0);
+    width: 17.5rem;
+  }
+
+  .admin-main-content {
+    margin-left: 0 !important;
+  }
+
   .admin-panel-title {
     font-size: 1.75rem;
   }
-  
+
   .calendar-wrapper,
   .appointments-wrapper {
     padding: 16px;
   }
-  
+
   .appointment-item {
     padding: 16px;
     font-size: 0.9rem;
   }
-  
+
   .appointments-wrapper h2 {
     font-size: 1.25rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
   }
 }
 
 /* Scrollbar Özelleştirmesi */
-.appointments-wrapper::-webkit-scrollbar {
+.appointments-wrapper::-webkit-scrollbar,
+.admin-main-content::-webkit-scrollbar {
   width: 8px;
 }
 
-.appointments-wrapper::-webkit-scrollbar-track {
+.appointments-wrapper::-webkit-scrollbar-track,
+.admin-main-content::-webkit-scrollbar-track {
   background: #f3f4f6;
   border-radius: 4px;
 }
 
-.appointments-wrapper::-webkit-scrollbar-thumb {
+.appointments-wrapper::-webkit-scrollbar-thumb,
+.admin-main-content::-webkit-scrollbar-thumb {
   background: #d1d5db;
   border-radius: 4px;
   transition: background 0.3s ease;
 }
 
-.appointments-wrapper::-webkit-scrollbar-thumb:hover {
+.appointments-wrapper::-webkit-scrollbar-thumb:hover,
+.admin-main-content::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
 }
